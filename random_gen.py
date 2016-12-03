@@ -25,16 +25,15 @@ def print_nums(times):
     nums_list = lsb_loop(times)
     for i,j in nums_list:
         print 'b_'+str(len(nums_list)-nums_list.index((i,j)))+'|', i,'|', j
-
-
+    return nums_list
 
 def final_number(times):
+    nums_list = print_nums(times)
     bits_list = []
-    nums_list = lsb_loop(times)
     for i in range(len(nums_list)-1,-1,-1):
         bits_list.append(nums_list[i][1])
     number = 25*'0'+'1'
-    for i in range(len(bits_list)):
+    for i in range(len(bits_list)-1,-1,-1):
         number = number + str(bits_list[i])
     number = number + '1'
     dec_final_number = int(number,2)
@@ -45,9 +44,8 @@ def final_number(times):
 #     lsb = extract_lsb(random_number)
 #     print lsb
 def main():
-    print_nums(5)
     pair_final_number = final_number(5)
-    print 'Number' + '|' + str(pair_final_number[1]) + '|' + str(pair_final_number[0])
+    print 'Number' + '|', pair_final_number[1], '|' ,pair_final_number[0]
 
 
 main()
