@@ -1,6 +1,7 @@
 import random
 
-def primality_testing(number):
+def isPrime(number):
+    is_prime = False
     a = random.randint(1,number-1)
     print a
     binary_rep_str = "{0:b}".format(number-1)
@@ -22,6 +23,20 @@ def primality_testing(number):
     if y!=1:
         print number, "is not prime"
     else:
+        is_prime = True
         print number, "is perhaps prime"
+    return is_prime
 
-primality_testing(9767)
+test = []
+for i in range(20):
+    test.append(isPrime(9767))
+    is_prime = False
+    if test[i] == False:
+        is_prime = False
+        break
+    else:
+        is_prime = True
+if is_prime == True:
+    print "Passed", len(test), "tests"
+else:
+    print "Failed on", i+1, "test"
