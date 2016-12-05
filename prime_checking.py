@@ -21,5 +21,5 @@ def prime_gen():
                     p , q = prime_pair
                     return p, q
 
-t = prime_gen()
-print "primes are: ", t
+t,r = prime_gen()
+print "primes are: ", t,r
