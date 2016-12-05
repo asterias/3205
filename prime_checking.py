@@ -1,9 +1,8 @@
-from miller_rabin import *
-from random_gen import *
+from miller_rabin import prime_loop
+from random_gen import final_number
 
 prime_pair = []
 both_prime = False
-i = 0
 def prime_gen():
     while both_prime == False:
         number = final_number(5)[1]
@@ -20,6 +19,3 @@ def prime_gen():
                     both_prime == True
                     p , q = prime_pair
                     return p, q
-
-t,r = prime_gen()
-print "primes are: ", t,r
