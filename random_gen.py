@@ -1,8 +1,10 @@
 import random
 
 def random_gen():
-    random_number = random.randint(2**31,2**32)
+    random_number = random.randint(1,2**32)
     random_binary_str = format(random_number,'b')
+    if len(random_binary_str) < 32:
+        random_binary_str = (32-len(random_binary_str))*'0' + random_binary_str
 
     return random_binary_str
 
@@ -44,6 +46,7 @@ def final_number(times):
 #     lsb = extract_lsb(random_number)
 #     print lsb
 def main():
+    print "line:143"
     pair_final_number = final_number(5)
     print 'Number' + '|', pair_final_number[1], '|' ,pair_final_number[0]
 
