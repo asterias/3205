@@ -6,20 +6,18 @@ def isPrime(number):
     print a
     binary_rep_str = "{0:b}".format(number-1)
     k = len(binary_rep_str)
-    print binary_rep_str, k
+    print binary_rep_str
     y = 1
+    print "i |xi\t|z\t|y\t|y"
     for i in range(k):
-        print i, binary_rep_str[i]
         z = y
-        print z
         y = (y*y) % number
-        print y
         if ((y==1) and (z!=1) and (z!=(number-1))):
             print number, "is not prime because %d^2 mod %d = 1 and %d != 1 and %d != %d-1" %(y,number,z,z,number-1)
             return 0
         if (binary_rep_str[i]=='1'):
             y = (y*a) % number
-    print "Y is", y
+        print "%d |%s\t|%d\t|%d\t|%d" %(k-i-1, binary_rep_str[i], z, y, y)
     if y!=1:
         print number, "is not prime because %d^%d mod %d != 1" %(a,number-1,number)
     else:

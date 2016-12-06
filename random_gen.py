@@ -24,13 +24,17 @@ def lsb_loop(times):
     return zip(numbers, bits)
 
 def print_nums(times):
+    digits = []
     nums_list = lsb_loop(times)
     for i,j in nums_list:
-        print 'b_'+str(len(nums_list)-nums_list.index((i,j)))+'|', i,'|', j
-    return nums_list
+        temp_str = 'b_%s|%s|%s'%(str(len(nums_list)-nums_list.index((i,j))), i, j)
+        digits.append(temp_str)
+    return nums_list, digits
 
 def final_number(times):
-    nums_list = print_nums(times)
+    temp_list = print_nums(times)
+    nums_list = temp_list[0]
+    digits = temp_list[1]
     bits_list = []
     for i in range(len(nums_list)-1,-1,-1):
         bits_list.append(nums_list[i][1])
@@ -39,16 +43,4 @@ def final_number(times):
         number = number + str(bits_list[i])
     number = number + '1'
     dec_final_number = int(number,2)
-    return number, dec_final_number
-# def main():
-#     random_number = random_gen()
-#     print random_number
-#     lsb = extract_lsb(random_number)
-#     print lsb
-def main():
-    print "line:143"
-    pair_final_number = final_number(5)
-    print 'Number' + '|', pair_final_number[1], '|' ,pair_final_number[0]
-
-
-main()
+    return number, dec_final_number, digits

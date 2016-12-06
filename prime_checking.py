@@ -1,9 +1,9 @@
 from miller_rabin import prime_loop
 from random_gen import final_number
 
-prime_pair = []
-both_prime = False
 def prime_gen():
+    prime_pair = []
+    both_prime = False
     while both_prime == False:
         number = final_number(5)[1]
         times = 20

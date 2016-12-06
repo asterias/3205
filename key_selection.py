@@ -1,6 +1,5 @@
 import math
 from prime_checking import prime_gen
-from miller_rabin import prime_loop, isPrime
 
 def ext_euclidean(phi, e):
     r0 = phi;
@@ -35,12 +34,8 @@ def key_selection(phi):
             d = inverse[1]
             are_coprime == True
             #print "The inverse of %d mod %d is d = %d" % (i, phi, d)
+            if d<0:
+                d = d % phi
             return (i,d)
         else:
             i = i + 2
-
-def main():
-    t = prime_gen()
-    print t
-
-main()
